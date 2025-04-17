@@ -1,9 +1,9 @@
 ### Team members
 
-* Member 1 (responsible for ...)
-* Member 2 (responsible for ...)
-* Member 3 (responsible for ...)
-* Member 4 (responsible for ...)
+* Pavlov Ivan(247158) (responsible for creating clock,headman)
+* Oleinik Ruslan(253232) (responsible for checking,testing codes and creating top level)
+* Pryimak Yevhenii(256562) (responsible for creating alarm and xdc file)
+* Shvedenko Konstantin(253002) (responsible for creating date_counter,github redaction)
 
 ### Abstract
 
