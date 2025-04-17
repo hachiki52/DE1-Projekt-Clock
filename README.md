@@ -19,8 +19,6 @@ The main contributions of the project are:
 
 [Link to A3 project poster.]
 
-[Optional: Link to your short video presentation.]
-
 ## Hardware description of demo application
 
 Describe your implementation. Put a descriptive top-level schematic of your application.
@@ -34,6 +32,5 @@ Put flowchats/state diagrams of your algorithm(s) and direct links to source/tes
 Write descriptive text and put simulation screenshots of components you created during the project.
 
 ## References
-
-1. Put here the references and online tools you used.
-2. ...
+We have used the materials from the Tomas-Fryza's github as a tools
+https://github.com/tomas-fryza/vhdl-labs/commits?author=tomas-fryza
