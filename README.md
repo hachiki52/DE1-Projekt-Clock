@@ -16,7 +16,9 @@ The main contributions of the project are:
 * ...
 
 [Photo(s) of your application with labels of individual parts.]
+
 https://youtube.com/shorts/wwK6do2oKpY?feature=share
+
 [Link to A3 project poster.]
 
 ## Hardware description of demo application
