@@ -1,0 +1,290 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Thu May  8 19:34:51 2025
+# Process ID: 18272
+# Current directory: C:/DE1_Projects/Struggles/Opak/Opak.runs/synth_1
+# Command line: vivado.exe -log top_level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
+# Log file: C:/DE1_Projects/Struggles/Opak/Opak.runs/synth_1/top_level.vds
+# Journal file: C:/DE1_Projects/Struggles/Opak/Opak.runs/synth_1\vivado.jou
+# Running On        :Pekarnya
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26200
+# Processor Detail  :AMD Ryzen 5 5600H with Radeon Graphics         
+# CPU Frequency     :3294 MHz
+# CPU Physical cores:6
+# CPU Logical cores :12
+# Host memory       :17024 MB
+# Swap memory       :10200 MB
+# Total Virtual     :27225 MB
+# Available Virtual :9010 MB
+#-----------------------------------------------------------
+source top_level.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 502.883 ; gain = 201.812
+Command: read_checkpoint -auto_incremental -incremental C:/DE1_Projects/Struggles/Opak/Opak.srcs/utils_1/imports/synth_1/top_level.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/DE1_Projects/Struggles/Opak/Opak.srcs/utils_1/imports/synth_1/top_level.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top top_level -part xc7a50ticsg324-1L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a50ti'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a50ti'
+INFO: [Device 21-403] Loading part xc7a50ticsg324-1L
+INFO: [Device 21-9227] Part: xc7a50ticsg324-1L does not have CEAM library.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 16100
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1357.098 ; gain = 448.777
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'top_level' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/top_level.vhd:27]
+	Parameter DB_CYCLES bound to: 2500000 - type: integer 
+	Parameter SYNC_BITS bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'debounce' declared at 'C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/debounce.vhd:7' bound to instance 'dbg_btnc' of component 'debounce' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/top_level.vhd:106]
+INFO: [Synth 8-638] synthesizing module 'debounce' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/debounce.vhd:22]
+	Parameter DB_CYCLES bound to: 2500000 - type: integer 
+	Parameter SYNC_BITS bound to: 2 - type: integer 
+WARNING: [Synth 8-614] signal 'sync_buffer' is read in the process but is not in the sensitivity list [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/debounce.vhd:30]
+WARNING: [Synth 8-614] signal 'sig_btn' is read in the process but is not in the sensitivity list [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/debounce.vhd:30]
+INFO: [Synth 8-256] done synthesizing module 'debounce' (0#1) [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/debounce.vhd:22]
+	Parameter DB_CYCLES bound to: 2500000 - type: integer 
+	Parameter SYNC_BITS bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'debounce' declared at 'C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/debounce.vhd:7' bound to instance 'dbg_btnu' of component 'debounce' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/top_level.vhd:117]
+	Parameter DB_CYCLES bound to: 2500000 - type: integer 
+	Parameter SYNC_BITS bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'debounce' declared at 'C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/debounce.vhd:7' bound to instance 'dbg_btnl' of component 'debounce' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/top_level.vhd:128]
+	Parameter DB_CYCLES bound to: 2500000 - type: integer 
+	Parameter SYNC_BITS bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'debounce' declared at 'C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/debounce.vhd:7' bound to instance 'dbg_btnd' of component 'debounce' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/top_level.vhd:139]
+	Parameter n_periods bound to: 100000000 - type: integer 
+INFO: [Synth 8-3491] module 'clock_en' declared at 'C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/clk_en.vhd:19' bound to instance 'clk_en_1hz_inst' of component 'clock_en' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/top_level.vhd:153]
+INFO: [Synth 8-638] synthesizing module 'clock_en' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/clk_en.vhd:32]
+	Parameter n_periods bound to: 100000000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clock_en' (0#1) [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/clk_en.vhd:32]
+	Parameter n_periods bound to: 100000 - type: integer 
+INFO: [Synth 8-3491] module 'clock_en' declared at 'C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/clk_en.vhd:19' bound to instance 'clk_en_1khz_inst' of component 'clock_en' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/top_level.vhd:161]
+INFO: [Synth 8-638] synthesizing module 'clock_en__parameterized1' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/clk_en.vhd:32]
+	Parameter n_periods bound to: 100000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clock_en__parameterized1' (0#1) [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/clk_en.vhd:32]
+INFO: [Synth 8-3491] module 'clock_counter' declared at 'C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/clock_counter.vhd:6' bound to instance 'clock_counter_inst' of component 'clock_counter' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/top_level.vhd:172]
+INFO: [Synth 8-638] synthesizing module 'clock_counter' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/clock_counter.vhd:20]
+INFO: [Synth 8-256] done synthesizing module 'clock_counter' (0#1) [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/clock_counter.vhd:20]
+INFO: [Synth 8-3491] module 'display_mux' declared at 'C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/display_mux.vhd:10' bound to instance 'display_mux_inst' of component 'display_mux' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/top_level.vhd:188]
+INFO: [Synth 8-638] synthesizing module 'display_mux' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/display_mux.vhd:24]
+INFO: [Synth 8-638] synthesizing module 'bin2seg' [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/bin2seg.vhd:32]
+INFO: [Synth 8-256] done synthesizing module 'bin2seg' (0#1) [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/bin2seg.vhd:32]
+INFO: [Synth 8-256] done synthesizing module 'display_mux' (0#1) [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/display_mux.vhd:24]
+INFO: [Synth 8-256] done synthesizing module 'top_level' (0#1) [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/top_level.vhd:27]
+WARNING: [Synth 8-6014] Unused sequential element edge_reg was removed.  [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/debounce.vhd:41]
+WARNING: [Synth 8-6014] Unused sequential element rise_reg was removed.  [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/debounce.vhd:42]
+WARNING: [Synth 8-6014] Unused sequential element fall_reg was removed.  [C:/DE1_Projects/Struggles/Opak/Opak.srcs/sources_1/new/debounce.vhd:43]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1468.777 ; gain = 560.457
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1468.777 ; gain = 560.457
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1468.777 ; gain = 560.457
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1468.777 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/DE1_Projects/Struggles/Opak/Opak.srcs/constrs_1/new/nexys-a7-50t.xdc]
+Finished Parsing XDC File [C:/DE1_Projects/Struggles/Opak/Opak.srcs/constrs_1/new/nexys-a7-50t.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/DE1_Projects/Struggles/Opak/Opak.srcs/constrs_1/new/nexys-a7-50t.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_level_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_level_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1568.508 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1568.508 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a50ticsg324-1L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    6 Bit       Adders := 3     
+	   2 Input    3 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 4     
++---Registers : 
+	                6 Bit    Registers := 3     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 5     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   7 Input    8 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 1     
+	   5 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 13    
+	   4 Input    1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design top_level has port AN[7] driven by constant 1
+WARNING: [Synth 8-3917] design top_level has port AN[6] driven by constant 1
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    48|
+|3     |LUT1   |    29|
+|4     |LUT2   |    56|
+|5     |LUT3   |    20|
+|6     |LUT4   |    13|
+|7     |LUT5   |    17|
+|8     |LUT6   |    36|
+|9     |FDRE   |   167|
+|10    |IBUF   |     5|
+|11    |OBUF   |    16|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1568.508 ; gain = 660.188
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:27 . Memory (MB): peak = 1568.508 ; gain = 560.457
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1568.508 ; gain = 660.188
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1568.508 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 48 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1568.508 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 2a3e12c1
+INFO: [Common 17-83] Releasing license: Synthesis
+44 Infos, 8 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 1568.508 ; gain = 1058.211
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1568.508 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/DE1_Projects/Struggles/Opak/Opak.runs/synth_1/top_level.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file top_level_utilization_synth.rpt -pb top_level_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu May  8 19:35:35 2025...

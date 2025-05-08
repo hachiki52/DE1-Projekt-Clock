@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Thu May  8 19:34:51 2025
+# Process ID: 18272
+# Current directory: C:/DE1_Projects/Struggles/Opak/Opak.runs/synth_1
+# Command line: vivado.exe -log top_level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
+# Log file: C:/DE1_Projects/Struggles/Opak/Opak.runs/synth_1/top_level.vds
+# Journal file: C:/DE1_Projects/Struggles/Opak/Opak.runs/synth_1\vivado.jou
+# Running On        :Pekarnya
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26200
+# Processor Detail  :AMD Ryzen 5 5600H with Radeon Graphics         
+# CPU Frequency     :3294 MHz
+# CPU Physical cores:6
+# CPU Logical cores :12
+# Host memory       :17024 MB
+# Swap memory       :10200 MB
+# Total Virtual     :27225 MB
+# Available Virtual :9010 MB
+#-----------------------------------------------------------
+source top_level.tcl -notrace
