@@ -46,9 +46,21 @@ In this simulation we can see seconds are going with every en_1hz (which is actu
 
 --[tb_display_mux.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_display_mux.vhd)
 
+![Show](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/tb_display_mux.png)
+
+In this simulation we can see that display shows correctly 7-segments digits
+
 --[tb_stopwatch.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_stopwatch.vhd)
 
+![Show](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/tb_stopwatch.png)
+
+In this simulation we can see that after we pushed "start" button our stopwatch is actually starting running
+
 --[tb_top_level.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_top_level.vhd)
+
+![Show](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/tb_top_level.png)
+
+In this simulation we can see that after we pushed "mode" button and select stopwatch mode we will push "start" button that will run our stopwatch then we will change mode back to "clock_counter" mode and set time 
 
 ## References
 We have used the materials (like clk_en, bin2seg and debounce) from the Tomas-Fryza's github as a tools
