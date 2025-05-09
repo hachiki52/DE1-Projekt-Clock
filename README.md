@@ -34,5 +34,5 @@ Put flowchats/state diagrams of your algorithm(s) and direct links to source/tes
 Write descriptive text and put simulation screenshots of components you created during the project.
 
 ## References
-We have used the materials from the Tomas-Fryza's github as a tools
+We have used the materials (like clk_en, bin2seg and debounce) from the Tomas-Fryza's github as a tools
 https://github.com/tomas-fryza/vhdl-labs/commits?author=tomas-fryza
