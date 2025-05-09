@@ -1,9 +1,9 @@
 ### Team members
 
 * Pavlov Ivan(247158) (responsible for creating clock_counter and display_multiplex)
-* Oleinik Ruslan(253232) (responsible for creating top level)
+* Oleinik Ruslan(253232) (responsible for creating top level and editing xdc)
 * Pryimak Yevhenii(256562) (responsible for testing simulations and github editing)
-* Shvedenko Konstantin(253002) (responsible for editing xdc, creating stopwatch and pptx-presentation)
+* Shvedenko Konstantin(253002) (responsible for creating stopwatch and pptx-presentation)
 
 ### Abstract
 
