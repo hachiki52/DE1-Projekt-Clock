@@ -21,29 +21,29 @@ There we can see logic of our project
 ## Software description
 [src/](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1)
 
-    [bin2seg.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/bin2seg.vhd)
+--[bin2seg.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/bin2seg.vhd)
 
-[clk_en.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/clk_en.vhd)
+--[clk_en.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/clk_en.vhd)
 
-[debounce.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/debounce.vhd)
+--[debounce.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/debounce.vhd)
 
-[clock_counter.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/clock_counter.vhd)
+--[clock_counter.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/clock_counter.vhd)
 
-[display_mux.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/display_mux.vhd)
+--[display_mux.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/display_mux.vhd)
 
-[stopwatch.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/stopwatch.vhd)
+--[stopwatch.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/stopwatch.vhd)
 
-[top_level.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/top_level.vhd)
+--[top_level.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/top_level.vhd)
 
 [sim/](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1)
 
-[tb_clock_counter.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_clock_counter.vhd)
+--[tb_clock_counter.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_clock_counter.vhd)
 
-[tb_display_mux.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_display_mux.vhd)
+--[tb_display_mux.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_display_mux.vhd)
 
-[tb_stopwatch.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_stopwatch.vhd)
+--[tb_stopwatch.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_stopwatch.vhd)
 
-[tb_top_level.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_top_level.vhd)
+--[tb_top_level.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_top_level.vhd)
 
 ### Component(s) simulations
 
