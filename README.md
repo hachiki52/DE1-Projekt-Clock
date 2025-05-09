@@ -18,7 +18,7 @@ https://youtube.com/shorts/wwK6do2oKpY?feature=share
 ![Schema](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/Top_level_RTL.png)
 There we can see logic of our project
 
-### Software description
+# Software description
 [src/](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1)
 
 --[bin2seg.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/bin2seg.vhd)
