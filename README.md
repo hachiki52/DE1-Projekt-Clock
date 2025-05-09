@@ -15,7 +15,7 @@ https://www.youtube.com/shorts/wwK6do2oKpY
 
 ## RTL-Schematic
 ![Schema](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/Top_level_RTL.png)
-There we can see logic of our project
+There we can see logic of our project 
 
 ## Components sources
 [src/](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1)
@@ -98,6 +98,13 @@ In this simulation we can see that after we pushed "start" button our stopwatch 
 ![Show](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/tb_top_level.png)
 
 In this simulation we can see that after we pushed "mode" button and select stopwatch mode we will push "start" button that will run our stopwatch then we will change mode back to "clock_counter" mode and set time 
+
+## Future Goals
+ Our next goal is to implement an alarm feature that hooks into the existing clock_counter module. It will continuously compare the current hours, minutes, and seconds 
+ against a user-set alarm time and will trigger by sound output or led indicating when they match. Unfortunately, due to time-requiring work on the Nexys A7 board and our 
+ project schedule, we weren’t able to integrate this into our project.
+
+And of course would be great to add some features such as: calendar, miliseconds into stopwatch display, timer and world clock.
 
 ## References
 We have used the materials (like clk_en, bin2seg and debounce) from the Tomas-Fryza's github as a tools
