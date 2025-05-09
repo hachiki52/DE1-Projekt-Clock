@@ -19,23 +19,33 @@ https://youtube.com/shorts/wwK6do2oKpY?feature=share
 There we can see logic of our project
 
 ## Software description
-/
-├── src/   
-│   ├── [bin2seg.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/bin2seg.vhd)
-│   ├── clk_en.vhd
-│   ├── debounce.vhd
-│   ├── clock_counter.vhd
-│   ├── display_mux.vhd
-│   ├── stopwatch.vhd
-│   └── top_level.vhd
-└── sim/
-    ├── tb_clock_counter.vhd
-    ├── tb_display_mux.vhd
-    ├── tb_stopwatch.vhd
-    └── tb_top_level.vhd
+src/
 
+bin2seg.vhd
 
+clk_en.vhd
 
+debounce.vhd
+
+clock_counter.vhd
+
+display_mux.vhd
+
+stopwatch.vhd
+
+top_level.vhd
+
+sim/
+
+tb_clock_counter.vhd
+
+tb_display_mux.vhd
+
+tb_stopwatch.vhd
+
+tb_top_level.vhd
+
+Выберите тот стиль, который в
 ### Component(s) simulations
 
 Write descriptive text and put simulation screenshots of components you created during the project.
