@@ -1,74 +1,73 @@
--- top_level.vhd
--- Топ-уровень с поддержкой настройки времени и аппаратным дебаунсом кнопок
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity top_level is
-  port (
-    CLK100MHZ : in  std_logic;                      -- 100 MHz такт
-    BTNC      : in  std_logic;                      -- кнопка RESET (active-high)
-    BTNU      : in  std_logic;                      -- кнопка SET (вход/выход в режим настройки)
-    BTNL      : in  std_logic;                      -- кнопка SEL (выбор поля H/M/S)
-    BTND      : in  std_logic;                      -- кнопка INC (инкремент выбранного поля)
-    CA        : out std_logic;                      -- сегмент A (active-low)
-    CB        : out std_logic;                      -- сегмент B
-    CC        : out std_logic;                      -- сегмент C
-    CD        : out std_logic;                      -- сегмент D
-    CE        : out std_logic;                      -- сегмент E
-    CF        : out std_logic;                      -- сегмент F
-    CG        : out std_logic;                      -- сегмент G
-    DP        : out std_logic;                      -- десятичная точка (off)
-    AN        : out std_logic_vector(7 downto 0)   -- аноды 8-цифр (active-low)
+  generic (
+    G_1HZ_COUNT  : integer := 100_000_000;  -- 100 MHz→1 Hz
+    G_1KHZ_COUNT : integer :=   100_000   -- 100 MHz→1 kHz
   );
-end entity top_level;
+  port (
+    CLK100MHZ : in  std_logic;                       -- 100 MHz
+    BTNC      : in  std_logic;                       -- RESET (active-high)
+    BTNU      : in  std_logic;                       -- SET (Clock) / START (Stopwatch)
+    BTNL      : in  std_logic;                       -- SEL (Clock)
+    BTND      : in  std_logic;                       -- INC (Clock) / RESET (Stopwatch)
+    BTNR      : in  std_logic;                       -- MODE (Clock↔Stopwatch)
+    CA, CB, CC, CD, CE, CF, CG : out std_logic;       -- 7-seg сегменты (active-low)
+    DP        : out std_logic;                       -- точка (между HH:MM и MM:SS)
+    AN        : out std_logic_vector(7 downto 0)     -- аноды 8-цифр (active-low)
+  );
+end entity;
 
-architecture structural of top_level is
+architecture rtl of top_level is
 
-  -- Тактовые enable-сигналы
+  -- «Enable» пульсы для делителей
   signal en_1hz_sig  : std_logic;
   signal en_1khz_sig : std_logic;
 
-  -- Шины времени
-  signal hours_sig   : std_logic_vector(5 downto 0);
-  signal minutes_sig : std_logic_vector(5 downto 0);
-  signal seconds_sig : std_logic_vector(5 downto 0);
+  -- Сигналы от нового debounce
+  signal btnc_clean, btnu_clean, btnl_clean, btnd_clean, btnr_clean : std_logic;
+  signal btnc_pos,   btnu_pos,   btnl_pos,   btnd_pos,   btnr_pos   : std_logic;
 
-  -- Семисегментный код
-  signal seg_sig     : std_logic_vector(6 downto 0);
+  -- Режим: '0'=Clock, '1'=Stopwatch
+  signal mode_sel   : std_logic := '0';
 
-  -- Сигналы от дебаунсера
-  signal btnc_db, btnu_db, btnl_db, btnd_db : std_logic;
-  signal btnc_edge, btnu_edge, btnl_edge, btnd_edge : std_logic;
+  -- Gate-сигналы для разных режимов
+  signal gate_set, gate_sel, gate_inc    : std_logic;
+  signal gate_start, gate_reset          : std_logic;
 
-  ----------------------------------------------------------------
+  -- Выходы подсистем
+  signal hr_clk, min_clk, sec_clk : std_logic_vector(5 downto 0);
+  signal hr_sw,  min_sw,  sec_sw  : std_logic_vector(5 downto 0);
+
+  -- Что в итоге на дисплей
+  signal disp_h, disp_m, disp_s : std_logic_vector(5 downto 0);
+  signal seg_sig                : std_logic_vector(6 downto 0);
+
+  ------------------------------------------------------------------------
+  -- Component declarations
+  ------------------------------------------------------------------------
+
   component debounce is
-    generic (
-      DB_CYCLES : integer := 2_500_000;  -- ~25 ms при 100 MHz
-      SYNC_BITS : integer := 2
-    );
-    port (
-      clk     : in  std_logic;
-      btn_in  : in  std_logic;
-      btn_out : out std_logic;
-      edge    : out std_logic;
-      rise    : out std_logic;
-      fall    : out std_logic
-    );
-  end component;
-
-  ----------------------------------------------------------------
-  component clock_en is
-    generic ( n_periods : integer );
     port(
-      clk   : in  std_logic;
-      rst   : in  std_logic;
-      pulse : out std_logic
+      clk      : in  std_logic;  -- главный такт
+      rst      : in  std_logic;  -- синхр. сброс (active-high)
+      en       : in  std_logic;  -- тактовый enable
+      bouncey  : in  std_logic;  -- «грязный» вход
+      clean    : out std_logic;  -- очищенный уровень
+      pos_edge : out std_logic;  -- импульс на фронте
+      neg_edge : out std_logic   -- импульс на спаде (не используем)
     );
   end component;
 
-  ----------------------------------------------------------------
+  component clock_en is
+    generic(n_periods : integer);
+    port(clk   : in std_logic;
+         rst   : in std_logic;
+         pulse : out std_logic);
+  end component;
+
   component clock_counter is
     port(
       clk     : in  std_logic;
@@ -83,7 +82,19 @@ architecture structural of top_level is
     );
   end component;
 
-  ----------------------------------------------------------------
+  component stopwatch is
+    port(
+      clk       : in  std_logic;
+      rst       : in  std_logic;
+      btn_start : in  std_logic;
+      btn_reset : in  std_logic;
+      en_1hz    : in  std_logic;
+      hours     : out std_logic_vector(5 downto 0);
+      minutes   : out std_logic_vector(5 downto 0);
+      seconds   : out std_logic_vector(5 downto 0)
+    );
+  end component;
+
   component display_mux is
     port(
       clk     : in  std_logic;
@@ -101,105 +112,153 @@ architecture structural of top_level is
 begin
 
   ----------------------------------------------------------------------------
-  -- 1) Дебаунс кнопок
+  -- 1) Debounce всех кнопок новым FSM-дебаунсером
   ----------------------------------------------------------------------------
-  dbg_btnc: debounce
-    generic map(DB_CYCLES=>2_500_000, SYNC_BITS=>2)
+  D_C: debounce
     port map(
-      clk    => CLK100MHZ,
-      btn_in => BTNC,
-      btn_out=> btnc_db,
-      edge   => btnc_edge,
-      rise   => open,
-      fall   => open
+      clk      => CLK100MHZ,
+      rst      => BTNC,
+      en       => en_1khz_sig,
+      bouncey  => BTNC,
+      clean    => btnc_clean,
+      pos_edge => btnc_pos,
+      neg_edge => open
     );
 
-  dbg_btnu: debounce
-    generic map(DB_CYCLES=>2_500_000, SYNC_BITS=>2)
+  D_U: debounce
     port map(
-      clk    => CLK100MHZ,
-      btn_in => BTNU,
-      btn_out=> btnu_db,
-      edge   => btnu_edge,
-      rise   => open,
-      fall   => open
+      clk      => CLK100MHZ,
+      rst      => BTNC,
+      en       => en_1khz_sig,
+      bouncey  => BTNU,
+      clean    => btnu_clean,
+      pos_edge => btnu_pos,
+      neg_edge => open
     );
 
-  dbg_btnl: debounce
-    generic map(DB_CYCLES=>2_500_000, SYNC_BITS=>2)
+  D_L: debounce
     port map(
-      clk    => CLK100MHZ,
-      btn_in => BTNL,
-      btn_out=> btnl_db,
-      edge   => btnl_edge,
-      rise   => open,
-      fall   => open
+      clk      => CLK100MHZ,
+      rst      => BTNC,
+      en       => en_1khz_sig,
+      bouncey  => BTNL,
+      clean    => btnl_clean,
+      pos_edge => btnl_pos,
+      neg_edge => open
     );
 
-  dbg_btnd: debounce
-    generic map(DB_CYCLES=>2_500_000, SYNC_BITS=>2)
+  D_D: debounce
     port map(
-      clk    => CLK100MHZ,
-      btn_in => BTND,
-      btn_out=> btnd_db,
-      edge   => btnd_edge,
-      rise   => open,
-      fall   => open
+      clk      => CLK100MHZ,
+      rst      => BTNC,
+      en       => en_1khz_sig,
+      bouncey  => BTND,
+      clean    => btnd_clean,
+      pos_edge => btnd_pos,
+      neg_edge => open
     );
 
-  ----------------------------------------------------------------------------
-  -- 2) Генераторы enable-импульсов
-  ----------------------------------------------------------------------------
-  clk_en_1hz_inst: clock_en
-    generic map(n_periods => 100_000_000)  -- 100 MHz → 1 Hz
+  D_R: debounce
     port map(
-      clk   => CLK100MHZ,
-      rst   => btnc_db,      -- сброс через очищенный сигнал
-      pulse => en_1hz_sig
-    );
-
-  clk_en_1khz_inst: clock_en
-    generic map(n_periods => 100_000)      -- 100 MHz → ~1 kHz
-    port map(
-      clk   => CLK100MHZ,
-      rst   => btnc_db,
-      pulse => en_1khz_sig
+      clk      => CLK100MHZ,
+      rst      => BTNC,
+      en       => en_1khz_sig,
+      bouncey  => BTNR,
+      clean    => btnr_clean,
+      pos_edge => btnr_pos,
+      neg_edge => open
     );
 
   ----------------------------------------------------------------------------
-  -- 3) Счётчик времени с настройкой
+  -- 2) Генераторы «делителей» 1 Hz и 1 kHz
   ----------------------------------------------------------------------------
-  clock_counter_inst: clock_counter
+  C1Hz: clock_en
+    generic map(n_periods => G_1HZ_COUNT)  -- 100 MHz → 1 Hz
+    port map(clk => CLK100MHZ, rst => btnc_clean, pulse => en_1hz_sig);
+
+  C1kHz: clock_en
+    generic map(n_periods =>   G_1KHZ_COUNT)   -- 100 MHz → 1 kHz
+    port map(clk => CLK100MHZ, rst => btnc_clean, pulse => en_1khz_sig);
+
+  ----------------------------------------------------------------------------
+  -- 3) FSM режима Clock (0) / Stopwatch (1)
+  ----------------------------------------------------------------------------
+  process(CLK100MHZ)
+  begin
+    if rising_edge(CLK100MHZ) then
+      if btnc_clean = '1' then
+        mode_sel <= '0';              -- RESET возвращает в режим часов
+      elsif btnr_pos = '1' then
+        mode_sel <= not mode_sel;     -- по кнопке MODE переключаем режим
+      end if;
+    end if;
+  end process;
+
+  ----------------------------------------------------------------------------
+  -- 4) Gate-логика: какие кнопки что делают в каждом режиме
+  ----------------------------------------------------------------------------
+  gate_set   <= btnu_pos when mode_sel = '0' else '0';  -- SET часов
+  gate_sel   <= btnl_pos when mode_sel = '0' else '0';  -- SEL часов
+  gate_inc   <= btnd_pos when mode_sel = '0' else '0';  -- INC часов
+  gate_start <= btnu_pos when mode_sel = '1' else '0';  -- START секундомера
+  gate_reset <= btnd_pos when mode_sel = '1' else '0';  -- RESET секундомера
+
+  ----------------------------------------------------------------------------
+  -- 5) Подсистема: часы с настройкой
+  ----------------------------------------------------------------------------
+  CC_inst : clock_counter
     port map(
       clk     => CLK100MHZ,
-      rst     => btnc_db,
+      rst     => btnc_clean,
       en_1hz  => en_1hz_sig,
-      btn_set => btnu_edge,
-      btn_sel => btnl_edge,
-      btn_inc => btnd_edge,
-      hours   => hours_sig,
-      minutes => minutes_sig,
-      seconds => seconds_sig
+      btn_set => gate_set,
+      btn_sel => gate_sel,
+      btn_inc => gate_inc,
+      hours   => hr_clk,
+      minutes => min_clk,
+      seconds => sec_clk
     );
 
   ----------------------------------------------------------------------------
-  -- 4) Мультиплексор дисплея
+  -- 6) Подсистема: секундомер
   ----------------------------------------------------------------------------
-  display_mux_inst: display_mux
+  SW_inst : stopwatch
+    port map(
+      clk       => CLK100MHZ,
+      rst       => btnc_clean,
+      btn_start => gate_start,
+      btn_reset => gate_reset,
+      en_1hz    => en_1hz_sig,
+      hours     => hr_sw,
+      minutes   => min_sw,
+      seconds   => sec_sw
+    );
+
+  ----------------------------------------------------------------------------
+  -- 7) Выбор что выводить на дисплей
+  ----------------------------------------------------------------------------
+  disp_h <= hr_clk when mode_sel = '0' else hr_sw;
+  disp_m <= min_clk when mode_sel = '0' else min_sw;
+  disp_s <= sec_clk when mode_sel = '0' else sec_sw;
+
+  ----------------------------------------------------------------------------
+  -- 8) Мультиплексор 7-сег. дисплея
+  ----------------------------------------------------------------------------
+  DM_inst : display_mux
     port map(
       clk     => CLK100MHZ,
-      rst     => btnc_db,
+      rst     => btnc_clean,
       en      => en_1khz_sig,
-      hours   => hours_sig,
-      minutes => minutes_sig,
-      seconds => seconds_sig,
+      hours   => disp_h,
+      minutes => disp_m,
+      seconds => disp_s,
       seg     => seg_sig,
       an      => AN,
       dp      => DP
     );
 
   ----------------------------------------------------------------------------
-  -- 5) Подключение сегментов
+  -- 9) Распиновка сегментов
   ----------------------------------------------------------------------------
   CA <= seg_sig(6);
   CB <= seg_sig(5);
@@ -209,4 +268,4 @@ begin
   CF <= seg_sig(1);
   CG <= seg_sig(0);
 
-end architecture structural;
+end architecture rtl;
