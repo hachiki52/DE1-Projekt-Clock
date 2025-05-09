@@ -51,22 +51,36 @@ There we can see logic of our project
 
   Was taken from the Tomas-Fryza's github. One-digit binary-to-7-segment decoder for a common-anode display. It maps a 4-bit hexadecimal input to the corresponding active- 
   low segment pattern (0–9, A–F), and forces all segments off when the clear input is asserted display_muxnexys-a7-50t
-  
-
 
   ## [clk_en.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/clk_en.vhd)
-
+  
+  Was taken from the Tomas-Fryza's github. A reusable clock-enable generator that counts up to a parameterized number of main-clock cycles and emits a one-cycle-wide pulse 
+  each time the count wraps.
+  
   ## [clock_counter.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/clock_counter.vhd)
+
+  A real-time clock counter with supporting RUN mode and three SET modes (hours, minutes, seconds). In RUN, it advances time on each 1 Hz pulse; in SET, it lets the user 
+  select a field (with SEL) and increment it (with INC), toggling in and out of SET via the SET button 
   
   ## [debounce.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/debounce.vhd)
 
   Was taken from the Tomas-Fryza's github. Implements a fully synchronous button debouncer. This ensures reliable, glitch-free button presses for all user inputs 
   
   ## [display_mux.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/display_mux.vhd)
+
+  Drives a multiplexed six-digit (HH:MM:SS) 7-segment display by first converting each 6-bit time value into two BCD digits, then cycling through digits at a ~1 kHz scan 
+  rate. For each digit, it selects the corresponding anode enable pattern and feeds the 4-bit BCD to a bin2seg decoder, generating active-low segment outputs and decimal- 
+  point control.
   
   ## [stopwatch.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/stopwatch.vhd)
+
+  A simple HH:MM:SS stopwatch with three states (IDLE, RUN, PAUSE). On each 1 Hz enable pulse, it increments seconds -> minutes -> hours with proper roll- 
+  over, toggles between RUN and PAUSE on a start button edge, and resets to zero on a reset button edge
   
   ## [top_level.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/top_level.vhd)
+
+  Wires everything together: debounces all five buttons with debouncer, generates en_1 Hz and en_1 kHz pulses, multiplexes between Clock and Stopwatch modes via 
+  MODE button, gates the other buttons depending on mode, instantiates the clock counter or stopwatch, and drives the display_mux.
 
 ### Simulation Description
 ## [tb_clock_counter.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_clock_counter.vhd)
