@@ -52,19 +52,19 @@ There we can see logic of our project
 
 
 ### Simulation Description
-
+## tb_clock_counter.vh
 ![Show](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/tb_clock_counter.png)
 
 In this simulation we can see seconds are going with every en_1hz (which is actually 1s), minutes and hours are changings after we pushed button "select" -> button "increment"
-
+## tb_display_mux.vhd
 ![Show](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/tb_display_mux.png)
 
 In this simulation we can see that display shows correctly 7-segments digits
-
+## tb_stopwatch.vhd
 ![Show](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/tb_stopwatch.png)
 
 In this simulation we can see that after we pushed "start" button our stopwatch is actually starting running
-
+## tb_top_level.vhd
 ![Show](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/tb_top_level.png)
 
 In this simulation we can see that after we pushed "mode" button and select stopwatch mode we will push "start" button that will run our stopwatch then we will change mode back to "clock_counter" mode and set time 
