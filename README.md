@@ -35,6 +35,8 @@ There we can see logic of our project
 
 --[top_level.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/top_level.vhd)
 
+### Component(s) simulations
+
 [sim/](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1)
 
 --[tb_clock_counter.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_clock_counter.vhd)
@@ -44,10 +46,6 @@ There we can see logic of our project
 --[tb_stopwatch.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_stopwatch.vhd)
 
 --[tb_top_level.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_top_level.vhd)
-
-### Component(s) simulations
-
-Write descriptive text and put simulation screenshots of components you created during the project.
 
 ## References
 We have used the materials (like clk_en, bin2seg and debounce) from the Tomas-Fryza's github as a tools
