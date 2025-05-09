@@ -11,7 +11,7 @@
 ![Show](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/Show.PNG)
 
 ## Video where our digital clock is simple running in project's previous iteration (with 1Hz blue blinker and without stopwatch and point between HH.MM.SS)
-(<iframe width="680" height="1209" src="https://www.youtube.com/embed/wwK6do2oKpY" title="document 5235633612782596685" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>)
+<iframe width="680" height="1209" src="https://www.youtube.com/embed/wwK6do2oKpY" title="document 5235633612782596685" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## RTL-Schematic
 ![Schema](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/Top_level_RTL.png)
