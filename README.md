@@ -42,6 +42,8 @@ There we can see logic of our project
 
 ![Show](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/tb_clock_counter.png)
 
+In this simulation we can see seconds are going with every en_1hz (which is actually 1s), minutes and hours are changings after we pushed button "select" -> button "increment"
+
 --[tb_display_mux.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_display_mux.vhd)
 
 --[tb_stopwatch.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sim_1/new/tb_stopwatch.vhd)
