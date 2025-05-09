@@ -5,6 +5,8 @@
 * Pryimak Yevhenii(256562) (responsible for testing simulations and github editing)
 * Shvedenko Konstantin(253002) (responsible for creating stopwatch and pptx-presentation)
 
+
+Easy Instruction for using our digital clock with stopwatch
 ![Show](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/Show.PNG)
 
 https://youtube.com/shorts/wwK6do2oKpY?feature=share
