@@ -1,10 +1,11 @@
 ### Team members
 
-* Pavlov Ivan(247158) (responsible for creating clock,headman)
-* Oleinik Ruslan(253232) (responsible for checking,testing codes and creating top level)
-* Pryimak Yevhenii(256562) (responsible for creating alarm and xdc file)
-* Shvedenko Konstantin(253002) (responsible for creating date_counter,github redaction)
+* Pavlov Ivan(247158) (responsible for creating clock_counter and digital clock)
+* Oleinik Ruslan(253232) (responsible for creating top level and alarm)
+* Pryimak Yevhenii(256562) (responsible for testing simulations and github editing)
+* Shvedenko Konstantin(253002) (responsible for editing xdc, creating stopwatch and pptx-presentation)
 
+  
 ### Abstract
 
 An abstract is a short summary of your project, usually about a paragraph (6-7 sentences, 150-250 words) long. A well-written abstract serves multiple purposes: (a) an abstract lets readers get the gist or essence of your project quickly; (b) an abstract prepares readers to follow the detailed information, description, and results in your report; (c) and, later, an abstract helps readers remember key points from your project.
