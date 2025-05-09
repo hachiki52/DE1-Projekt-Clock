@@ -16,7 +16,7 @@ https://youtube.com/shorts/wwK6do2oKpY?feature=share
 
 ### RTL-Schematic
 ![Schema](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/Top_level_RTL.png)
-
+There we can see logic of our project
 
 ## Software description
 
