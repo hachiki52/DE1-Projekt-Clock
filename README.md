@@ -6,7 +6,6 @@
 * Shvedenko Konstantin(253002) (responsible for creating stopwatch and pptx-presentation)
 
 
-#Hardware description of demo application
 
 ## Easy Instruction for using our digital clock with stopwatch
 ![Show](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Images/Show.PNG)
