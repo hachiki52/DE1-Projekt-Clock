@@ -49,11 +49,18 @@ There we can see logic of our project
 ### Sources Description
   ## [bin2seg.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/bin2seg.vhd)
 
+  Was taken from the Tomas-Fryza's github. One-digit binary-to-7-segment decoder for a common-anode display. It maps a 4-bit hexadecimal input to the corresponding active- 
+  low segment pattern (0–9, A–F), and forces all segments off when the clear input is asserted display_muxnexys-a7-50t
+  
+
+
   ## [clk_en.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/clk_en.vhd)
 
   ## [clock_counter.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/clock_counter.vhd)
   
   ## [debounce.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/debounce.vhd)
+
+  Was taken from the Tomas-Fryza's github. Implements a fully synchronous button debouncer. This ensures reliable, glitch-free button presses for all user inputs 
   
   ## [display_mux.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/display_mux.vhd)
   
