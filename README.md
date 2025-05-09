@@ -5,17 +5,7 @@
 * Pryimak Yevhenii(256562) (responsible for testing simulations and github editing)
 * Shvedenko Konstantin(253002) (responsible for creating stopwatch and pptx-presentation)
 
-### Abstract
 
-An abstract is a short summary of your project, usually about a paragraph (6-7 sentences, 150-250 words) long. A well-written abstract serves multiple purposes: (a) an abstract lets readers get the gist or essence of your project quickly; (b) an abstract prepares readers to follow the detailed information, description, and results in your report; (c) and, later, an abstract helps readers remember key points from your project.
-
-The main contributions of the project are:
-
-* ...
-* ...
-* ...
-
-[Photo(s) of your application with labels of individual parts.]
 
 https://youtube.com/shorts/wwK6do2oKpY?feature=share
 
