@@ -20,7 +20,21 @@ There we can see logic of our project
 
 ## Software description
 
-Put flowchats/state diagrams of your algorithm(s) and direct links to source/testbench files in `src` and `sim` folders.
+|── src/
+│   ├── [bin2seg.vhd](https://github.com/hachiki52/DE1-Projekt-Clock/blob/digital_clock_only_clock/Digital_clock.srcs/sources_1/new/bin2seg.vhd)
+│   ├── clk_en.vhd
+│   ├── debounce.vhd
+│   ├── clock_counter.vhd
+│   ├── display_mux.vhd
+│   ├── stopwatch.vhd
+│   └── top_level.vhd
+└── sim/
+    ├── tb_clock_counter.vhd
+    ├── tb_display_mux.vhd
+    ├── tb_stopwatch.vhd
+    └── tb_top_level.vhd
+
+
 
 ### Component(s) simulations
 
