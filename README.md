@@ -45,7 +45,6 @@ tb_stopwatch.vhd
 
 tb_top_level.vhd
 
-Выберите тот стиль, который в
 ### Component(s) simulations
 
 Write descriptive text and put simulation screenshots of components you created during the project.
